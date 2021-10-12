@@ -17,15 +17,21 @@ describe("Counter", () => {
   });
 
   it('should start the counter at zero', () => {
-    
+    const counter = container.find('#counter')
+    expect(counter.text()).toEqual('0')
   });
 
-  xit("should increment counter on click", () => {
-    
+  it("should increment counter on click", () => {
+    container.find('#button-up').simulate("click")
+    const counter = container.find('#counter')
+    expect(counter.text()).toEqual('1')
   });
 
-  xit("should decrement counter on click", () => {
-   
+  it("should decrement counter on click", () => {
+    container.find('#button-up').simulate("click")
+    container.find('#button-down').simulate("click")
+    const counter = container.find('#counter')
+    expect(counter.text()).toEqual('0')
   });
 
 })
